@@ -1,0 +1,65 @@
+{% extends 'useradmin/base.html' %}
+{% block content %}
+  
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-title">Stock</p>
+          <div class="row">
+            <div class="col-12">
+              <div class="table-responsive">
+                <table id="example" class="display expandable-table" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th>Stock Plan</th>
+                      <th>Amount</th>
+                      <th>Percentage</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  {% for x in x reversed %}
+                  <tbody>
+                    <td>
+                        <div class="tbd">
+                            <div class="img"><img src="{{x.image.url}}" alt=""></div>
+                            <p>{{x.user.username}}</p>
+                            <div class="content">
+                                <p>{{x.name}}</p>
+                                <p>{{x.date}}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                      ${{x.current_price}}
+                    </td>
+                  
+                      
+                    <td>
+                        {% if x.profit_active %}
+                        <p style="color: green;">Profit {{x.profit_percentage}}%</p>
+                        
+                        {% else %}
+                        <p style="color: green;">Loss {{x.loss_percentage}}%</p>
+                        
+                        {% endif %}
+                    </td>
+
+                    <td>
+                  <a href="/useradmin/stockedit/{{x.id}}">Edit</a>
+                     
+                    </td>
+                  </tbody>
+                  {% endfor %}
+              </table>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+
+{% endblock %}

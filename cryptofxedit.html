@@ -1,0 +1,48 @@
+{% extends 'useradmin/base.html' %}
+{% load static %}
+{% block content %}
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Stock</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">  <!-- Link to your CSS file -->
+</head>
+<style>
+   
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+input{
+    border: 2px solid gray;
+    border-radius: 7px;
+}
+
+
+</style>
+<body>
+    <div class="container">
+        <h3>Edit {{pn}} plan: {{ stock.name }}</h3    >
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Render the form fields with existing data -->
+            <div class="" style="display: flex;gap: 5px;">
+                <button type="submit" class="btn btn-primary">Update Stock</button>
+            <a class="btn btn-danger" href="/useradmin/stockplan">Cancel</a>
+            </div> 
+        </form><br>
+         <!-- Link to go back to the stock list -->
+    </div>
+{% endblock %}

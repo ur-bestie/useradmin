@@ -1,0 +1,54 @@
+{% extends 'useradmin/base.html' %}
+{% block content %}
+  
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-title">Transfer</p>
+          <div class="row">
+            <div class="col-12">
+              <div class="table-responsive">
+                <table id="example" class="display expandable-table" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th>User Transfer</th>
+                      <th>Amount</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  {% for x in x reversed %}
+                  <tbody>
+                    <td>
+                        <div class="tbd">
+                            <div class="img">{{x.user.username}}</div>
+                            <p></p>
+                            <!-- <div class="content">
+                                <p>{{x.name}}</p>
+                                <p>{{x.date}}</p>
+                            </div> -->
+                        </div>
+                    </td>
+                    <td>
+                        ${{x.amount}}
+                    </td>
+                    <td>
+                      
+                      {{x.date}}
+                  <!-- <a href="/useradmin/delstocks/{{x.id}}">Delete Trade</a> -->
+                     
+                    </td>
+                  </tbody>
+                  {% endfor %}
+              </table>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+
+{% endblock %}

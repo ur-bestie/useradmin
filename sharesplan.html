@@ -1,0 +1,54 @@
+{% extends 'useradmin/base.html' %}
+{% block content %}
+  
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-title">Shares</p>
+          <div class="row">
+            <div class="col-12">
+              <div class="table-responsive">
+                <table id="example" class="display expandable-table" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th>Shares Plan</th>
+                      <th>Interest Rate</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  {% for x in x reversed %}
+                  <tbody>
+                    <td>
+                        <div class="tbd">
+                            <div class="img"><img src="{{x.img.url}}" alt=""></div>
+                            <p>{{x.user.username}}</p>
+                            <div class="content">
+                                <p>{{x.name}}</p>
+                                <p>{{x.date}}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                     <p style="color: green;"> +{{x.interest_rate}}%</p>
+                    </td>
+                    <td>
+                      
+                    
+                  <a href="/useradmin/sharesedit/{{x.id}}">Edit</a>
+                     
+                    </td>
+                  </tbody>
+                  {% endfor %}
+              </table>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+
+{% endblock %}
